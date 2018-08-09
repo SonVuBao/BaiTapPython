@@ -5,11 +5,10 @@ i = 2
 #Kiểm tra xem số nào là số nguyên tố
 while i < n:
     j = 2
-    while j <= i // j:
+    while j <= i//2:
         if i % j == 0:
             break
         j = j + 1
     else:
         print (i)
-    i = i + 1
- 
+    i = i + 1 
