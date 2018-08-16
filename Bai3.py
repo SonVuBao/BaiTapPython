@@ -1,15 +1,30 @@
-import random
-qty = 1000
-randPoints = [(131,328)]
-i = 0
-#lấy random các điểm nằm trong mặt phẳng lặp đi lặp lại 1000 lần 
-while i<qty:
-    x = random.randint(0,300)
-    y = random.randint(0,400)
-   	#nếu điểm random mời trùng với random cũ thì random lại cho đến khi không lặp
-    if (x,y) not in randPoints:
-    	randPoints.append((x,y))
-    	i += 1
-    else:
-    	continue
-print (str(randPoints))
+from random import *
+
+class point():
+    x = 0
+    y = 0
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    
+def check (p, listPoint):
+    for x in listPoint:
+        if(x.x == p.x and x.y == p.y):
+            return False
+    return True
+
+
+# Sinh diem ngau nhien khong trung
+def genaratoRandomPoint():
+    pointList = []
+    while (len(pointList) < 1000):
+        x = (randrange(0, 1000))
+        y = (randrange(0, 1000))
+        p = (x, y)
+        if(check(p, pointList)):
+            pointList.append(p)
+            return pointList
+
+#Main
+pointList = genaratoRandomPoint()
+print (pointList)
